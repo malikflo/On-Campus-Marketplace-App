@@ -1,0 +1,43 @@
+from flask import Flask, render_template, request, redirect, url_for
+from models.user import db, User
+from models.item import Item
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/marketplace.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
+
+@app.route('/')
+def index():
+    items = Item.get_all_items()
+    return render_template('index.html', items=items)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        user = User.find_user(email, password)
+        if user:
+            return redirect(url_for('home', user_id=user.id))
+        else:
+            return 'Invalid credentials'
+    return render_template('login.html')
+
+@app.route('/home/<int:user_id>', methods=['GET'])
+def home(user_id):
+    items = Item.query.filter_by(user_id=user_id).all()
+    return render_template('item_list.html', items=items, user_id=user_id)
+
+@app.route('/add_item/<int:user_id>', methods=['GET', 'POST'])
+def add_item(user_id):
+    if request.method == 'POST':
+        title = request.form['title']
+        description = request.form['description']
+        price = request.form['price']
+        Item.add_item(title, description, price, user_id)
+        return redirect(url_for('home', user_id=user_id))
+    return render_template('add_item.html', user_id=user_id)
+
+if __name__ == '__main__':
+    app.run(debug=True)
