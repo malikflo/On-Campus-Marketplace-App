@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Items</title>
+</head>
+<body>
+    <h1>Your Items</h1>
+    <a href="/add_item/{{ user_id }}">Add New Item</a>
+    <ul>
+        {% for item in items %}
+            <li>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+                <p>Price: ${{ item.price }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
