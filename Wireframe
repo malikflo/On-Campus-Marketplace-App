@@ -1,0 +1,67 @@
+Wireframe Overview: On-Campus Marketplace App
+
+1. Home Screen:
+
+Search bar at the top
+
+Filter options (Category, Price, Condition, etc.)
+
+Featured listings carousel
+
+Grid/List view of items with image, title, price, and seller info
+
+Bottom navigation bar (Home, Sell, Messages, Profile)
+
+2. Item Listing Page:
+
+Large image of the item (swipe for multiple images)
+
+Title, price, and category
+
+Description and item condition
+
+Seller details (name, rating, contact button)
+
+‘Message Seller’ button
+
+‘Report Listing’ button
+
+3. User Profile Page:
+
+Profile picture and name
+
+Verified university email badge
+
+User rating and reviews
+
+Past listings
+
+‘Edit Profile’ button
+
+4. Sell Item Page:
+
+Upload images button
+
+Title, price, and category dropdown
+
+Condition selection (New, Like New, Used, etc.)
+
+Description text box
+
+Submit button
+
+5. Messaging System:
+
+List of conversations with item preview
+
+Chat screen with text input and image sharing
+
+‘Report User’ button
+
+6. Safety Features:
+
+Suggested meetup locations map
+
+Reporting tools on listings and profiles
+
+Guidelines for safe transactions
